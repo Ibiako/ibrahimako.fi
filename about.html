@@ -16,29 +16,15 @@
         }
 
         @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        h1 {
-            font-size: 36px;
-            color: #50554e;
-        }
-        h2 {
-            font-size: 24px;
-            color: #50554e;
-        }
-        p {
-            font-size: 16px;
-            color: #50554e;
-        }
+        h1 { font-size: 36px; color: #50554e; }
+        h2 { font-size: 24px; color: #50554e; }
+        p { font-size: 16px; color: #50554e; }
+
         .content-area {
             border: 1px solid #9faa9d;
             padding: 20px;
@@ -79,9 +65,7 @@
             transform: rotate(45deg) translate(5px, 5px);
         }
 
-        .hamburger.active .line:nth-child(2) {
-            opacity: 0;
-        }
+        .hamburger.active .line:nth-child(2) { opacity: 0; }
 
         .hamburger.active .line:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -5px);
@@ -113,54 +97,20 @@
             display: block;
         }
 
-        .nav a:hover {
-            background-color: #4CAF50;
+        .nav a:hover { background-color: #4CAF50; }
+
+        /* Image Styles */
+        .image-container {
+            max-width: 640px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
-        /* Slider Styles */
-        .slider {
-            position: relative;
-            max-width: 800px; /* Max width for the slider */
-            margin: 20px auto; /* Center the slider */
-            overflow: hidden; /* Hide overflow */
-            border-radius: 10px; /* Rounded corners */
-        }
-
-        .slides {
-            display: flex; /* Arrange images in a row */
-            transition: transform 0.5s ease; /* Smooth transition */
-        }
-
-        .slide {
-            min-width: 100%; /* Each slide takes full width */
-            box-sizing: border-box; /* Include padding/border in element's total width/height */
-        }
-
-        .slide img {
-            width: 100%; /* Make images responsive */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 10px; /* Rounded corners */
-        }
-
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.7);
-            border: none;
-            border-radius: 50%;
-            padding: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-
-        .prev {
-            left: 10px;
-        }
-
-        .next {
-            right: 10px;
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block; /* Ensures no extra space below the image */
         }
     </style>
 </head>
@@ -203,33 +153,44 @@
         <p>Kiitos, että käytit aikaa tutustuaksesi minuun! Pysytään yhteyksissä.</p>
     </div>
 
-    <!-- Image Slider -->
-    <div class="slider">
-        <button class="prev" id="prev">❮</button>
-        <div class="slides" id="slides">
-            <div class="slide"><img src="image/kuva3.jpeg" alt="Image 1"></div>
-            <div class="slide"><img src="image/kuva4.jpeg" alt="Image 2"></div>
-            <div class="slide"><img src="image/kuva5.jpeg" alt="Image 3"></div>
-            <div class="slide"><img src="image/kuva6.jpeg" alt="Image 4"></div>
-            <div class="slide"><img src="image/kuva7.jpeg" alt="Image 5"></div>
-            <div class="slide"><img src="image/kuva8.jpeg" alt="Image 6"></div>
-            <div class="slide"><img src="image/kuva9.jpeg" alt="Image 7"></div>
-        </div>
-        <button class="next" id="next">❯</button>
+    <!-- Image Display with Lazy Loading -->
+    <div class="image-container">
+        <img data-src="image/kuva3.jpeg" alt="Image 1" class="lazy" src="path/to/placeholder-image.jpg">
     </div>
 
     <script>
         const hamburger = document.getElementById('hamburger');
         const nav = document.getElementById('nav');
-        const slides = document.getElementById('slides');
-        const prevButton = document.getElementById('prev');
-        const nextButton = document.getElementById('next');
-        
-        let currentSlide = 0;
 
-        function showSlide(index) {
-            const totalSlides = slides.children.length;
-            if (index < 0) {
-                currentSlide = totalSlides - 1; // Wrap to the last slide
-            } else if (index >= totalSlides) {
-                currentSlide
+        hamburger.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'none' || nav.style.display === '' ? 'block' : 'none';
+            hamburger.classList.toggle('active');
+        });
+
+        // Lazy Load Images
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll('img.lazy');
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src; // Load the actual image
+                        img.onload = () => img.classList.remove('lazy'); // Remove lazy class after load
+                        observer.unobserve(img); // Stop observing once loaded
+                    }
+                });
+            }, options);
+
+            lazyImages.forEach(image => {
+                lazyImageObserver.observe(image); // Observe each image
+            });
+        });
+    </script>
+</body>
+</html>
