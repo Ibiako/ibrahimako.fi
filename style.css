@@ -1,0 +1,101 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box; /* Better sizing behavior */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    color: #50554e;
+    margin: 20px;
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Heading Styles */
+h1, h2 {
+    margin-bottom: 15px; /* Space below headings */
+}
+
+h1 {
+    font-size: 2.5rem; /* Responsive size */
+    color: #50554e;
+    text-align: center; /* Center the main heading */
+}
+
+h2 {
+    font-size: 2rem; /* Responsive size */
+    color: #4CAF50; /* Green color for subheadings */
+}
+
+/* Paragraph Styles */
+p {
+    font-size: 1rem; /* Set a standard size for paragraphs */
+    margin-bottom: 15px; /* Space below paragraphs */
+}
+
+/* Content Area Styling */
+.text-space, .content-area {
+    border: 2px solid #9faa9d; /* Thicker border for visibility */
+    padding: 20px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Link Styles */
+a {
+    color: #4CAF50; /* Main link color */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+    color: #3e8e41; /* Darker green on hover */
+}
+
+/* Button Styles */
+button {
+    background-color: #4CAF50; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 15px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+button:hover {
+    background-color: #3e8e41; /* Darker green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce padding for mobile */
+    }
+    
+    h1 {
+        font-size: 2rem; /* Smaller heading size for mobile */
+    }
+    
+    h2 {
+        font-size: 1.5rem; /* Smaller subheading size */
+    }
+    
+    p {
+        font-size: 0.9rem; /* Adjust paragraph size */
+    }
+
+    .text-space, .content-area {
+        padding: 15px; /* Reduce padding for mobile */
+    }
+}
+
+/* Accessibility Enhancements */
+:focus {
+    outline: 2px solid #4CAF50; /* Focus outline for accessibility */
+}

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+            background-size: 300% 300%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #50554e;
+            margin: 20px;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Alleviivaa kaikki lihavoidut tekstit */
+        b, strong, h1, h2, h3 {
+            text-decoration: underline;
+        }
+
+        h1, h2, h3, p {
+            color: #50554e;
+        }
+
+        .section-container {
+            border: 1px solid #9faa9d;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .hamburger {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            transition: transform 0.3s ease;
+        }
+        .line {
+            height: 6px;
+            width: 30px;
+            background: linear-gradient(45deg, #4CAF50, #80e3b3);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0; /* Updated to make the menu open from the left */
+            background-color: #50554e;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav li {
+            padding: 10px 20px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .nav a:hover {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav" id="nav">
+            <ul>
+                <li><a href="index.html">Tervetuloa</a></li>
+                <li><a href="about.html">Tietoja itsestäni</a></li>
+                <li><a href="portfolio.html">Portfolioni</a></li>
+                <li><a href="contact.html">Yhteystiedot</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <header>
+        <h1>Portfolio</h1>
+    </header>
+    
+    <section>
+        <p>Olen Ibrahim Ako, IT-alan opiskelija ja tuleva ohjelmoinnin ammattilainen. Tämä portfolio tarjoaa sinulle mahdollisuuden tutustua työhistoriaani 
+            ja osaamiseeni, joita olen kerryttänyt matkani varrella. Pidän tärkeänä jatkuvaa oppimista ja kehittymistä, ja tavoitteeni on erikoistua ohjelmointiin 
+            ja kehittää innovatiivisia ratkaisuja, jotka vastaavat niin käyttäjien kuin yritysten tarpeisiin.</p>
+
+        <div class="section-container">
+            <h2>Työkokemus</h2>
+            <div class="experience">
+                <h3>DHL Supply Chain</h3>
+                <p>19.9.2022 - . Työtehtävät: tilaustenkäsittely, asiakaspalvelu, inhouse-tehtävät, JDA- ja SAP-järjestelmät.</p>
+
+                <h3>Ikea Vantaan varasto</h3>
+                <p>1.6.2022 - 7.11.2022. Työtehtävät: tavaran vastaanotto, keräily ja inventointi.</p>
+
+                <h3>Kavallerit Oy:n ruoka verkkokauppa</h3>
+                <p>12.4.2022 - 22.8.2022. Työtehtävät: ruoan keräily ja kuljetus.</p>
+
+                <h3>Aseanic Oy:n varasto</h3>
+                <p>28.11.2021 - 10.1.2022. Työharjoittelu: tavaran keräily ja lähetys.</p>
+
+                <h3>McDonald’s</h3>
+                <p>5.3.2021 - 1.6.2021. Keittiötyöntekijä: ruoan valmistaminen ja keittiön siivoaminen.</p>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <h2>Koulutus</h2>
+            <div class="education">
+                <h3>Stadin ammattiopisto</h3>
+                <p>Logistiikka-alan perustutkinto, varastonhoitaja, 2.8.2021 - 12.6.2023.</p>
+
+                <h3>Lahden kansanopisto</h3>
+                <p>Aikuisten peruskoulu, 2018 - 2019, peruskoulun päättötodistus.</p>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <h2>Kielitaito</h2>
+            <div class="skills">
+                <p>Kurdi: äidinkieli</p>
+                <p>Suomi: erinomainen</p>
+                <p>Englanti: erinomainen</p>
+                <p>Arabia: melko hyvä</p>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <h2>Kortit</h2>
+            <div class="certificates">
+                <p>Hygieniapassi</p>
+                <p>Työturvallisuuskortti</p>
+                <p>Ensiapukortti</p>
+                <p>B-kortti</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+            hamburger.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

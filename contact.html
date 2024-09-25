@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yhteystiedot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+            background-size: 300% 300%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #50554e;
+            margin: 20px;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1, h2, p {
+            color: #50554e;
+        }
+
+        .text-space {
+            border: 1px solid #9faa9d;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            text-align: center; /* Keskittää tekstin */
+        }
+
+        .profile-image {
+            width: 300px; /* Suurennettu koko */
+            height: auto; /* Säilyttää kuvan suhteen */
+            border-radius: 50%; /* Pyöristetyt reunat kuvalle */
+            margin-bottom: 10px; /* Väli nimen ja kuvan väliin */
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .hamburger {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .line {
+            height: 6px;
+            width: 30px;
+            background: linear-gradient(45deg, #4CAF50, #80e3b3);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger:hover .line {
+            background: linear-gradient(45deg, #80e3b3, #4CAF50);
+        }
+
+        .hamburger.active .line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active .line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .nav {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: #50554e;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav li {
+            padding: 10px 20px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav a:hover {
+            background-color: #4CAF50;
+        }
+
+        /* Alaviivaus */
+        .underline {
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: inline-block;
+            margin: 0 5px; /* Väli kuvien välillä */
+            vertical-align: middle; /* Keskittää kuvat rivissä */
+        }
+
+        .social-icons img {
+            width: 40px; /* Suurennettu leveys */
+            height: 40px; /* Suurennettu korkeus */
+            margin-right: 5px; /* Väli kuvan ja tekstin väliin */
+            vertical-align: middle; /* Keskittää kuvan tekstin kanssa */
+        }
+
+        .social-links {
+            text-align: center; /* Keskittää sosiaalisen median linkit */
+            margin-top: 10px; /* Lisätään väli ylle */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-container">
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav" id="nav">
+            <ul>
+                <li><a href="index.html">Tervetuloa</a></li>
+                <li><a href="about.html">Tietoja itsestäni</a></li>
+                <li><a href="portfolio.html">Portfolioni</a></li>
+                <li><a href="contact.html">Yhteystiedot</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <h1>Yhteystiedot</h1>
+    <div class="text-space">
+        <img src="image/kuva2.jpeg" alt="Profiilikuva" class="profile-image"> <!-- Vaihda omaan kuvaasi -->
+        
+        <h2>Ibrahim Ako</h2>
+        <p>Ota yhteyttä sähköpostitse: <a href="mailto:ibrahim.ako@outlook.com" class="underline">ibrahim.ako@outlook.com</a></p>
+        <p>Puhelin: <a href="tel:+358451088850" class="underline">+358 45 108 8850</a></p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/yourusername" class="underline social-icons">
+                <img src="image/Instagram-icon-Logo.png" alt="Instagram logo"> Instagram
+            </a>
+            <a href="https://www.linkedin.com/in/yourusername" class="underline social-icons">
+                <img src="image/linkedin.logo.jpg" alt="LinkedIn logo"> LinkedIn
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+            hamburger.classList.toggle('active'); // Add active class for animation
+        });
+    </script>
+
+</body>
+</html>
