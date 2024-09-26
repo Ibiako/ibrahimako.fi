@@ -105,6 +105,24 @@
         .nav a:hover {
             background-color: #4CAF50;
         }
+
+        /* Image container */
+        .image-container {
+            display: flex;
+            justify-content: center; /* Center the image */
+            margin: 15px auto;
+            width: 100%; /* Ensure the container is responsive */
+            max-width: 600px; /* Set a maximum width for larger screens */
+            overflow: hidden; /* Prevent overflow */
+            border-radius: 10px; /* Round corners */
+        }
+
+        /* Responsive image */
+        .image-container img {
+            width: 100%; /* Take full width of the container */
+            height: auto; /* Maintain aspect ratio */
+            object-fit: cover; /* Cover the container while maintaining aspect ratio */
+        }
     </style>
 </head>
 <body>
@@ -130,7 +148,10 @@
     <div class="text-space">
         <p>Hei ja tervetuloa sivuilleni! Täältä löydät tietoa projekteistani, osaamisestani ja tavoitteistani. 
             Selaa rauhassa ja ota yhteyttä, jos jokin herättää kiinnostuksesi. Kiitos vierailustasi.</p>
-    </div><img src="image/kuva1.jpeg" alt="Oma kuva" style="max-width: 50%; height: auto; border-radius: 10px; margin: 15px auto; display: block;" />
+    </div>
+    
+    <div class="image-container">
+        <img src="image/kuva1.jpeg" alt="Oma kuva" />
     </div>
 
     <script>
