@@ -16,15 +16,9 @@
         }
 
         @keyframes gradientAnimation {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         h1, h2, p {
@@ -79,9 +73,7 @@
             transform: rotate(45deg) translate(5px, 5px);
         }
 
-        .hamburger.active .line:nth-child(2) {
-            opacity: 0;
-        }
+        .hamburger.active .line:nth-child(2) { opacity: 0; }
 
         .hamburger.active .line:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -5px);
@@ -113,9 +105,7 @@
             display: block;
         }
 
-        .nav a:hover {
-            background-color: #4CAF50;
-        }
+        .nav a:hover { background-color: #4CAF50; }
 
         /* Alaviivaus */
         .underline {
@@ -161,7 +151,7 @@
 
     <h1>Yhteystiedot</h1>
     <div class="text-space">
-        <img src="image/kuva2.jpeg" alt="Profiilikuva" class="profile-image"> <!-- Vaihda omaan kuvaasi -->
+        <img data-src="image/kuva2.jpeg" alt="Profiilikuva" class="profile-image lazy" src="path/to/placeholder-image.jpg"> <!-- Lazy Load -->
         
         <h2>Ibrahim Ako</h2>
         <p>Ota yhteyttä sähköpostitse: <a href="mailto:ibrahim.ako@outlook.com" class="underline">ibrahim.ako@outlook.com</a></p>
@@ -183,6 +173,31 @@
         hamburger.addEventListener('click', () => {
             nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
             hamburger.classList.toggle('active'); // Add active class for animation
+        });
+
+        // Lazy Load Images
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = document.querySelectorAll('img.lazy');
+            const options = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src; // Load the actual image
+                        img.onload = () => img.classList.remove('lazy'); // Remove lazy class after load
+                        observer.unobserve(img); // Stop observing once loaded
+                    }
+                });
+            }, options);
+
+            lazyImages.forEach(image => {
+                lazyImageObserver.observe(image); // Observe each image
+            });
         });
     </script>
 
