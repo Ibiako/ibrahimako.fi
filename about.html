@@ -101,16 +101,19 @@
 
         /* Image Styles */
         .image-container {
-            max-width: 640px;
-            margin: 20px auto;
-            border-radius: 10px;
-            overflow: hidden;
+            display: flex;
+            justify-content: center; /* Center the image */
+            max-width: 640px; /* Max width for larger screens */
+            margin: 20px auto; /* Center the container */
+            border-radius: 10px; /* Round corners */
+            overflow: hidden; /* Prevent overflow */
         }
 
         .image-container img {
-            width: 100%;
-            height: auto;
+            width: 100%; /* Take full width of the container */
+            height: auto; /* Maintain aspect ratio */
             display: block; /* Ensures no extra space below the image */
+            object-fit: cover; /* Cover the container while maintaining aspect ratio */
         }
     </style>
 </head>
@@ -192,5 +195,6 @@
             });
         });
     </script>
+
 </body>
 </html>
