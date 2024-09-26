@@ -27,18 +27,25 @@
             }
         }
 
+        h1, h2, p {
+            color: #50554e; /* Ensure consistent text color */
+        }
+
         h1 {
             font-size: 36px;
-            color: #50554e;
+            font-weight: 700; /* Use bold weight */
         }
+
         h2 {
             font-size: 24px;
-            color: #50554e;
+            font-weight: 700; /* Use bold weight */
         }
+
         p {
             font-size: 16px;
-            color: #50554e;
+            font-weight: 400; /* Regular weight for body text */
         }
+
         .text-space {
             border: 1px solid #9faa9d;
             padding: 20px;
@@ -54,6 +61,7 @@
             position: relative;
             margin-bottom: 20px;
         }
+
         .hamburger {
             cursor: pointer;
             display: flex;
@@ -61,6 +69,7 @@
             gap: 6px;
             transition: transform 0.3s ease;
         }
+
         .line {
             height: 6px;
             width: 30px;
@@ -68,40 +77,49 @@
             border-radius: 10px;
             transition: transform 0.3s ease;
         }
+
         .hamburger:hover .line {
             background: linear-gradient(45deg, #80e3b3, #4CAF50);
         }
+
         .hamburger.active .line:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
         }
+
         .hamburger.active .line:nth-child(2) {
             opacity: 0;
         }
+
         .hamburger.active .line:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -5px);
         }
+
         .nav {
             display: none;
             position: absolute;
             top: 50px;
-            left: 0; /* Changed from right to left */
+            left: 0;
             background-color: #50554e;
             border-radius: 5px;
             z-index: 1000;
         }
+
         .nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
+
         .nav li {
             padding: 10px 20px;
         }
+
         .nav a {
             color: white;
             text-decoration: none;
             display: block;
         }
+
         .nav a:hover {
             background-color: #4CAF50;
         }
@@ -151,7 +169,7 @@
     </div>
     
     <div class="image-container">
-        <img src="image/kuva1.jpeg" alt="Oma kuva">
+        <img src="image/kuva1.jpeg" alt="Oma kuva" /> <!-- Ensure the alt text is descriptive -->
     </div>
 
     <script>
