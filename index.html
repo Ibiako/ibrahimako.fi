@@ -69,6 +69,7 @@
             flex-direction: column;
             gap: 6px;
             transition: transform 0.3s ease;
+            role="button"; /* Add role to hamburger */
         }
 
         .line {
@@ -147,7 +148,7 @@
 <body aria-hidden="false"> <!-- Optional aria-hidden -->
 
     <div class="menu-container">
-        <div class="hamburger" id="hamburger" tabindex="0" aria-expanded="false" aria-controls="nav"> <!-- Added aria attributes -->
+        <div class="hamburger" id="hamburger" tabindex="0" aria-expanded="false" aria-controls="nav" role="button"> <!-- Added role attribute -->
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
